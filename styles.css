@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;700&display=swap');
+body {
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    color: rgb(34, 34, 34);
+}
+
+h1 {
+    font-size: 40px;
+    font-family: 'Pacifico', cursive;
+}
+
+.cool-text {
+    font-size: 20px;
+    position: fixed;
+    bottom: 1%;
+    left: 50%;
+    transform: translateX(-25%);
+    font-family: 'Pacifico', cursive;
+}
+
+.hide {
+    display: none !important;
+}
+
+#buttons-container button {
+    border: none;
+    padding: 10px 15px;
+    width: 200px;
+    height: 80px;
+    margin-right: 20px;
+    background-color: #fff;
+    border: 2.2px solid rgb(34, 34, 34);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 26px;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+}
+
+#buttons-container button i {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#buttons-container button:focus {
+    outline: none;
+    border: 2px solid rgb(255, 255, 255);
+    background-color: rgb(34, 34, 34);
+    color: #fff;
+}
+
+#play-container {
+    width: 300px;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.box {
+    display: flex;
+    flex: 1 1 33%;
+    height: 100px;
+    border: 2px solid rgb(34, 34, 34);
+    box-sizing: border-box;
+}
+
+#block-1,
+#block-2,
+#block-3 {
+    border-top: none;
+}
+
+#block-1,
+#block-4,
+#block-7 {
+    border-left: none;
+}
+
+#block-3,
+#block-6,
+#block-9 {
+    border-right: none;
+}
+
+#block-7,
+#block-8,
+#block-9 {
+    border-bottom: none;
+}
+
+.x {
+    font-size: 65px;
+    font-weight: 700;
+    display: inline-block;
+    line-height: 100px;
+}
+
+.o {
+    width: 45px;
+    height: 45px;
+    border: 7px solid;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 17px;
+}
+
+#scoreboard-container {
+    font-weight: 700;
+    margin-top: 30px;
+    font-size: 25px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.score-box {
+    margin: 0 20px;
+}
+
+#x-scoreboard {
+    margin-right: 3px;
+}
+
+#o-scoreboard {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 4px solid;
+    border-radius: 50%;
+    margin-right: 3px;
+}
+
+#message {
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    /* background-color: rgb(34, 34, 34); */
+    background: linear-gradient(135deg, rgb(34, 34, 34) 20%, rgb(0, 0, 0));
+    font-size: 40px;
+    font-weight: 700;
+    color: #fff;
+    padding: 0 20px;
+}

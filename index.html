@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href='https://css.gg/microbit.css' rel='stylesheet'>
+    <link href='https://css.gg/profile.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <h1>Tic Tac Toe</h1>
+        <div id="buttons-container">
+            <button id="btnTwoPlayers">
+              <i class="gg-profile"></i>2 Players
+            </button>
+            <button id="btnAI">
+              <i class="gg-microbit"></i>AI Player
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div id="play-container" class="hide">
+            <div class="box" id="block-1"></div>
+            <div class="box" id="block-2"></div>
+            <div class="box" id="block-3"></div>
+            <div class="box" id="block-4"></div>
+            <div class="box" id="block-5"></div>
+            <div class="box" id="block-6"></div>
+            <div class="box" id="block-7"></div>
+            <div class="box" id="block-8"></div>
+            <div class="box" id="block-9"></div>
+
+            <div id="scoreboard-container">
+                <h2>Scoreboard:</h2>
+                <span class="score-box">
+                  <span id="x-scoreboard">X</span>:<span id="x-scoreboard-value">0</span>
+                </span>
+
+                <span class="score-box">
+                  <span id="o-scoreboard"></span>:<span id="o-scoreboard-value">0</span>
+                </span>
+            </div>
+        </div>
+    </main>
+
+    <div class="hide">
+        <div class="x">X</div>
+        <div class="o"></div>
+    </div>
+
+    <div id="message" class="">
+        <p>Hellow World!</p>
+    </div>
+
+    <footer>
+        <p class="cool-text">Fabreco</p>
+        <script src="./index.js"></script>
+    </footer>
+</body>
+
+</html>
