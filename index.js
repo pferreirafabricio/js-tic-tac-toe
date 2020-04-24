@@ -9,26 +9,35 @@ let secondPlayer;
 let player1 = 0;
 let player2 = 0;
 
-for (let i = 0; i < boxes.length; i++) {
-    boxes[i].addEventListener('click', () => {
-        let elCurrentPlayer = currentPlayer(player1, player2);
 
-        if (boxes[i].childNodes.length === 0) {
-            let cloneElCurrentPlayer = elCurrentPlayer.cloneNode(true);
-            boxes[i].appendChild(cloneElCurrentPlayer);
+const addClickEvent = () => {
+    for (let i = 0; i < boxes.length; i++) {
+        boxes[i].addEventListener('click', () => {
+            let elCurrentPlayer = currentPlayer(player1, player2);
 
-            if (player1 === player2) {
-                player1++;
-            } else {
-                player2++;
+            if (boxes[i].childNodes.length === 0) {
+                let cloneElCurrentPlayer = elCurrentPlayer.cloneNode(true);
+                boxes[i].appendChild(cloneElCurrentPlayer);
+
+                if (player1 === player2) {
+                    player1++;
+                } else {
+                    player2++;
+                }
+
+                checkWinCondition();
             }
-
-            checkWinCondition();
-        }
-
-
-    });
+        });
+    }
 }
+addClickEvent();
+
+// const removeClickEvent = () => {
+//     for (let i = 0; i < boxes.length; i++) {
+//         boxes[i].removeEventListener('click', () => {});
+//     }
+// }
+
 
 const currentPlayer = (player1, player2) => {
     if (player1 === player2)
@@ -59,9 +68,9 @@ const checkWinCondition = () => {
 
 
         if (elBox1Class === 'o' && elBox2Class === 'o' && elBox3Class === 'o') {
-            console.log(`Player O win!`);
+            declareWinner('o');
         } else if (elBox1Class === 'x' && elBox2Class === 'x' && elBox3Class === 'x') {
-            console.log(`Player X win!`);
+            declareWinner('x');
         }
     }
 
@@ -75,9 +84,9 @@ const checkWinCondition = () => {
 
 
         if (elBox4Class === 'o' && elBox5Class === 'o' && elBox6Class === 'o') {
-            console.log(`Player O win!`);
+            declareWinner('o');
         } else if (elBox4Class === 'x' && elBox5Class === 'x' && elBox6Class === 'x') {
-            console.log(`Player X win!`);
+            declareWinner('x');
         }
     }
 
@@ -91,9 +100,9 @@ const checkWinCondition = () => {
 
 
         if (elBox7Class === 'o' && elBox8Class === 'o' && elBox9Class === 'o') {
-            console.log(`Player O win!`);
+            declareWinner('o');
         } else if (elBox7Class === 'x' && elBox8Class === 'x' && elBox9Class === 'x') {
-            console.log(`Player X win!`);
+            declareWinner('x');
         }
     }
 
@@ -108,9 +117,9 @@ const checkWinCondition = () => {
 
 
         if (elBox1Class === 'o' && elBox4Class === 'o' && elBox7Class === 'o') {
-            console.log(`Player O win!`);
+            declareWinner('o');
         } else if (elBox1Class === 'x' && elBox4Class === 'x' && elBox7Class === 'x') {
-            console.log(`Player X win!`);
+            declareWinner('x');
         }
     }
 
@@ -124,9 +133,9 @@ const checkWinCondition = () => {
 
 
         if (elBox2Class === 'o' && elBox5Class === 'o' && elBox8Class === 'o') {
-            console.log(`Player O win!`);
+            declareWinner('o');
         } else if (elBox2Class === 'x' && elBox5Class === 'x' && elBox8Class === 'x') {
-            console.log(`Player X win!`);
+            declareWinner('x');
         }
     }
 
@@ -140,9 +149,9 @@ const checkWinCondition = () => {
 
 
         if (elBox3Class === 'o' && elBox6Class === 'o' && elBox9Class === 'o') {
-            console.log(`Player O win!`);
+            declareWinner('o');
         } else if (elBox3Class === 'x' && elBox6Class === 'x' && elBox9Class === 'x') {
-            console.log(`Player X win!`);
+            declareWinner('x');
         }
     }
 
@@ -157,9 +166,9 @@ const checkWinCondition = () => {
 
 
         if (elBox1Class === 'o' && elBox5Class === 'o' && elBox9Class === 'o') {
-            console.log(`Player O win!`);
+            declareWinner('o');
         } else if (elBox1Class === 'x' && elBox5Class === 'x' && elBox9Class === 'x') {
-            console.log(`Player X win!`);
+            declareWinner('x');
         }
     }
 
@@ -173,9 +182,9 @@ const checkWinCondition = () => {
 
 
         if (elBox3Class === 'o' && elBox5Class === 'o' && elBox7Class === 'o') {
-            console.log(`Player O win!`);
+            declareWinner('o');
         } else if (elBox3Class === 'x' && elBox5Class === 'x' && elBox7Class === 'x') {
-            console.log(`Player X win!`);
+            declareWinner('x');
         }
     }
 
@@ -186,10 +195,50 @@ const checkWinCondition = () => {
         }
     }
     if (counter === 9) {
-        giveOld();
+        weTied();
     }
 }
 
-const giveOld = () => {
-    console.log(`Give old, shit!`);
+const weTied = () => {
+    showMessage('We tied, shit!');
+}
+
+const showMessage = (message) => {
+    // removeClickEvent();
+    messageText.innerHTML = message;
+    messageContainer.classList.remove('hide');
+    resetGame();
+
+    setTimeout(() => {
+        messageContainer.classList.add('hide');
+        //addClickEvent();
+    }, 3000);
+}
+
+const resetGame = () => {
+    player1 = 0;
+    player2 = 0;
+
+    let allMarkedUpBoxes = document.querySelectorAll('.box div');
+
+    for (let i = 0; i < allMarkedUpBoxes.length; i++) {
+        allMarkedUpBoxes[i].parentNode.removeChild(allMarkedUpBoxes[i]);
+    }
+}
+
+const declareWinner = (winner) => {
+    let scoreboardX = document.getElementById('x-scoreboard-value');
+    let scoreboardO = document.getElementById('o-scoreboard-value');
+    let message = '';
+
+    if (winner === 'x') {
+        scoreboardX.textContent = parseInt(scoreboardX.textContent) + 1;
+        message = `Player 1 win!`;
+    } else if (winner === 'o') {
+        scoreboardO.textContent = parseInt(scoreboardO.textContent) + 1;
+        message = `Player 2 win!`;
+    } else {
+        weTied();
+    }
+    showMessage(message);
 }
