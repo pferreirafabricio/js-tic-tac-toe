@@ -149,3 +149,9 @@ h1 {
     font-weight: 700;
     color: #fff;
 }
+
+@media screen and (max-width: 768px) {
+    #buttons-container button {
+        margin-top: 20px;
+    }
+}
