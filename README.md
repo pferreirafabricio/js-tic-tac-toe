@@ -1,5 +1,5 @@
 <h5 align="center">
-<img src="https://images.koji-cdn.com/3ebdc945-21d3-478c-8cfb-ad34b246d8f6/e485558260dc4200b07ce840a63afb3d.png" width="250px" /><br>
+<img src="./projectImages/tictactoe.png" width="120px" /><br>
  <b>Tic Tac Toe - We Tied, shit!</b> :older_woman:
 </h5>
 <p align="center">
@@ -12,9 +12,11 @@
 <br/>
 
 ## :eyeglasses: How was it?
-<img src="./projectImages/screenshot-initial.png" width="1000px"/>
-<img src="./projectImages/screenshot-main.png" width="1000px"/>
-<img src="./projectImages/screenshot-win.png" width="1000px"/>
+<img src="./projectImages/screenshot-initial.png" width="500px"/>
+<hr/>
+<img src="./projectImages/screenshot-main.png" width="500px"/>
+<hr/>
+<img src="./projectImages/screenshot-win.png" width="500px"/>
 
 
 ## :star2: Technologies
