@@ -1,5 +1,5 @@
 <h5 align="center">
-<img src="./projectImages/logo@3x.png" width="250px" /><br>
+<img src="https://images.koji-cdn.com/3ebdc945-21d3-478c-8cfb-ad34b246d8f6/e485558260dc4200b07ce840a63afb3d.png" width="250px" /><br>
  <b>Tic Tac Toe - We Tied, shit!</b> :older_woman:
 </h5>
 <p align="center">
