@@ -5,39 +5,48 @@ const buttons = document.querySelectorAll('#buttons-container button');
 const messageContainer = document.querySelector('#message');
 const messageText = document.querySelector('#message p');
 let secondPlayer;
-
 let player1 = 0;
 let player2 = 0;
 
 
-const addClickEvent = () => {
-    for (let i = 0; i < boxes.length; i++) {
-        boxes[i].addEventListener('click', () => {
-            let elCurrentPlayer = currentPlayer(player1, player2);
+for (let i = 0; i < boxes.length; i++) {
+    boxes[i].addEventListener('click', () => {
+        let elCurrentPlayer = currentPlayer(player1, player2);
 
-            if (boxes[i].childNodes.length === 0) {
-                let cloneElCurrentPlayer = elCurrentPlayer.cloneNode(true);
-                boxes[i].appendChild(cloneElCurrentPlayer);
+        if (boxes[i].childNodes.length === 0) {
+            let cloneElCurrentPlayer = elCurrentPlayer.cloneNode(true);
+            boxes[i].appendChild(cloneElCurrentPlayer);
 
-                if (player1 === player2) {
-                    player1++;
-                } else {
+            if (player1 === player2) {
+                player1++;
+
+                if (secondPlayer === 'btnAI') {
+                    aiPlay();
                     player2++;
                 }
-
-                checkWinCondition();
+            } else {
+                player2++;
             }
-        });
-    }
+
+            checkWinCondition();
+        }
+    });
 }
-addClickEvent();
 
-// const removeClickEvent = () => {
-//     for (let i = 0; i < boxes.length; i++) {
-//         boxes[i].removeEventListener('click', () => {});
-//     }
-// }
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', () => {
+        secondPlayer = buttons[i].getAttribute('id');
 
+        for (let j = 0; j < buttons.length; j++) {
+            buttons[j].style.display = 'none';
+        }
+
+        setTimeout(() => {
+            const container = document.getElementById('play-container');
+            container.classList.remove('hide');
+        }, 200);
+    });
+};
 
 const currentPlayer = (player1, player2) => {
     if (player1 === player2)
@@ -241,4 +250,28 @@ const declareWinner = (winner) => {
         weTied();
     }
     showMessage(message);
+}
+
+const aiPlay = () => {
+    let cloneO = o.cloneNode(true);
+    counter = 0;
+    filled = 0;
+
+    for (let i = 0; i < boxes.length; i++) {
+        let randomNumber = Math.floor(Math.random() * 5);
+
+        if (boxes[i].childNodes[0] == undefined) {
+            if (randomNumber <= 1) {
+                boxes[i].appendChild(cloneO);
+                counter++;
+                break;
+            }
+        } else {
+            filled++;
+        }
+    }
+
+    if (counter === 0 && filled < 9) {
+        aiPlay();
+    }
 }
