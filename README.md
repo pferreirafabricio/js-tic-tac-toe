@@ -14,9 +14,7 @@
 ## :eyeglasses: How was it?
 <div style="display:flex;justify-content:space-around;">
  <img src="./projectImages/screenshot-initial.png" width="auto" height="100px"/>
- <hr/>
  <img src="./projectImages/screenshot-main.png" width="auto" height="200px"/>
- <hr/>
  <img src="./projectImages/screenshot-win.png" width="auto" height="200px"/>
 </div>
 
