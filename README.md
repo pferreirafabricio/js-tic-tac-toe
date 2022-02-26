@@ -18,6 +18,7 @@
  <img src="./projectImages/screenshot-win.png" width="auto" height="300px"/>
 </div>
 
+> Play on: https://pferreirafabricio.github.io/js-ticTacToe/
 
 
 ## :star2: Technologies
